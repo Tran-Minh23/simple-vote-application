@@ -17,7 +17,6 @@ import com.springboot.vote.dto.UserDto;
 import com.springboot.vote.model.User;
 import com.springboot.vote.service.CustomUserDetailsService;
 
-
 @CrossOrigin
 @RestController
 public class UserController {
@@ -29,6 +28,9 @@ public class UserController {
 	private CustomUserDetailsService customUserDetailsService;
 	
 	// Api for login
+	// take user object as parameter and check it from the database
+	// if user name and password are correct, respond with error code 0
+	// otherwise, respond with error code 1 and Invalid message
 	@PostMapping("/api/login")
 	public ResponseEntity<Map<String, Object>> login(@RequestBody UserDto request) throws Exception {
 		Map<String, Object> response= new LinkedHashMap<String, Object>();
@@ -47,6 +49,9 @@ public class UserController {
 	}
 	
 	// Api for register
+	// take user object as parameter and save it to the database
+	// if register is successful, respond with error 0 and user's data
+	// if email already exist, it will respond error 1 and Invalid message
 	@PostMapping("/api/register")
 	public ResponseEntity<Map<String, Object>> saveUser(@RequestBody UserDto request) {
 		Map<String, Object> response= new LinkedHashMap<String, Object>();

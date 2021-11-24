@@ -1,6 +1,6 @@
 package com.springboot.vote.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -31,7 +31,7 @@ public class Item {
 	@Column(name = "content")
 	private String content;
 	@Column(name = "created_on")
-	private LocalDateTime createdOn;
+	private Date createdOn;
 	
 	@ManyToMany(mappedBy = "items")
 	private List<User> users;
