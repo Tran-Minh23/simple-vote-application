@@ -20,6 +20,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public User saveUser(User user) {
 		return userRepository.save(user);
 	}
+	
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

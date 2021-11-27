@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -37,11 +38,7 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	@ManyToMany
-	@JoinTable(
-		name = "user_like",
-		joinColumns = @JoinColumn(name = "user_id"),
-		inverseJoinColumns = @JoinColumn(name = "item_id"))
+	@OneToMany (mappedBy = "user")
 	@JsonIgnore
-	private List<Item> items;
+	private List<UserLike> likes;
 }

@@ -43,7 +43,9 @@ public class UserController {
 			response.put("message", "Invalid username or password");
 			return new ResponseEntity<>(response, HttpStatus.OK);
 		}
+		User user = customUserDetailsService.findByEmail(request.getEmail());
 		response.put("errorCode", 0);
+		response.put("id", user.getId());
 		response.put("user", request.getEmail());
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}

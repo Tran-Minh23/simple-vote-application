@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +35,7 @@ public class Item {
 	@Column(name = "created_on")
 	private Date createdOn;
 	
-	@ManyToMany(mappedBy = "items")
-	private List<User> users;
+	@OneToMany(mappedBy = "item")
+	@JsonIgnore
+	private List<UserLike> likes;
 }
