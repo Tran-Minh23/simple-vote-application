@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.vote.dto.UserDto;
-import com.springboot.vote.model.User;
+import com.springboot.vote.model.copyuser.CopyUser;
+import com.springboot.vote.model.voteapp.User;
+import com.springboot.vote.repository.copyuser.CopyUserRepository;
 import com.springboot.vote.service.CustomUserDetailsService;
 
 @CrossOrigin
@@ -26,6 +28,9 @@ public class UserController {
 	
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
+	
+	@Autowired
+	CopyUserRepository copyUserRepository;
 	
 	// Api for login
 	// take user object as parameter and check it from the database
@@ -70,6 +75,12 @@ public class UserController {
 			response.put("message", "Invalid username");
 			return new ResponseEntity<>(response, HttpStatus.OK);
 		}
+		// This copy user to copy user infos to another database
+		CopyUser copyUser = new CopyUser();
+		copyUser.setEmail(user.getEmail());
+		copyUser.setPassword(user.getPassword());
+		copyUserRepository.save(copyUser);
+		
 		response.put("errorCode", 0);
 		response.put("data", user);
 		return new ResponseEntity<>(response, HttpStatus.CREATED);

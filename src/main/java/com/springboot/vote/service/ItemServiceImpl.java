@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springboot.vote.model.Item;
-import com.springboot.vote.repository.ItemRepository;
+import com.springboot.vote.model.voteapp.Item;
+import com.springboot.vote.repository.voteapp.ItemRepository;
 
 @Service
 public class ItemServiceImpl implements ItemService {

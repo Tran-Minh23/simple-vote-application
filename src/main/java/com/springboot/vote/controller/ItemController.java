@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.vote.dto.ItemDto;
-import com.springboot.vote.model.Item;
+import com.springboot.vote.model.voteapp.Item;
 import com.springboot.vote.service.ItemService;
 import com.springboot.vote.service.UserLikeService;
 

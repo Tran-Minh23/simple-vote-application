@@ -3,7 +3,7 @@ package com.springboot.vote.service;
 import java.util.Date;
 import java.util.List;
 
-import com.springboot.vote.model.Item;
+import com.springboot.vote.model.voteapp.Item;
 
 public interface ItemService {
 	void save(Item item);

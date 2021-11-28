@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.springboot.vote.model.User;
-import com.springboot.vote.repository.UserRepository;
+import com.springboot.vote.model.voteapp.User;
+import com.springboot.vote.repository.voteapp.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

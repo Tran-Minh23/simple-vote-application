@@ -1,4 +1,4 @@
-package com.springboot.vote.model;
+package com.springboot.vote.model.voteapp;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;

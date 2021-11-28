@@ -3,7 +3,8 @@ package com.springboot.vote.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springboot.vote.repository.UserLikeRepository;
+import com.springboot.vote.repository.voteapp.UserLikeRepository;
+
 
 @Service
 public class UserLikeServiceImpl implements UserLikeService {
